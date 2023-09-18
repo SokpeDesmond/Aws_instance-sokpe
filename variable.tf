@@ -1,6 +1,6 @@
 
 variable "ami" {
-  default     = "ami-0989fb15ce71ba39e"
+  default     = "ami-0989fb15ce71ba12e"
   type        = string
   description = "ami of the instance"
 }
