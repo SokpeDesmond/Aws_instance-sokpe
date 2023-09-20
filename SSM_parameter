@@ -1,0 +1,15 @@
+resource "aws_ssm_parameter" "vpc_id1" {
+  name        = "/example_parameter1"
+  description = "An example SSM parameter"
+  type        = "String" # Use "String" instead of "string"
+  value       = aws_vpc.main.id
+
+  # Other attributes like "value" or "tier" go here
+}
+
+resource "aws_ssm_parameter" "subnt1" {
+  name        = "/example_parameter2"
+  description = "An example SSM parameter"
+  type        = "String" # Use "String" instead of "string"
+  value       = aws_subnet.subnt1.id
+}
