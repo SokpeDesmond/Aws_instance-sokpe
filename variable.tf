@@ -1,6 +1,6 @@
 
 variable "ami" {
-  default     = "ami-0989fb15ce71ba12e"
+  default     = "ami-09166fb15ce71ba21e"
   type        = string
   description = "ami of the instance"
 }
@@ -14,7 +14,6 @@ variable "servers" {
   default = ["dev", "prod", "test"]
   type    = list(any)
 }
-
 
 variable "instance_name" {
   default     = "sokpedemo"
@@ -39,15 +38,29 @@ variable "vpc_name" {
 }
 
 
-variable "subnet_name" {
+variable "prisubnet_name" {
   default = ["privatesubn1", "privatesubn2", ]
   type    = list(any)
 }
 
-variable "sudnet_cidr1" {
+variable "prisudnet_cidr1" {
   default = "10.0.1.0/24"
 }
 
-variable "subnet_cidr2" {
+variable "prisudnet_cidr2" {
   default = "10.0.2.0/24"
 }
+
+variable "pubsubnet_name" {
+  default = ["publicsubn1", "publicsubn2", ]
+  type    = list(any)
+}
+
+variable "pubsudnet_cidr1"{
+  default = "10.0.3.0/24"
+}
+
+variable "pubsudnet_cidr2" {  
+ default = "10.0.4.0/24"
+}
+
