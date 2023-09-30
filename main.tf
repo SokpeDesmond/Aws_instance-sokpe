@@ -1,7 +1,7 @@
 resource "aws_instance" "magot" {
   ami           = var.ami
   instance_type = var.instance_type["production"]
-  subnet_id     = aws_subnet.subnt1.id
+  subnet_id     = aws_subnet.pubsubnt.id
   tags = {
     name = var.servers[1]
   }
@@ -14,22 +14,37 @@ resource "aws_vpc" "main" {
   }
 }
 
-resource "aws_subnet" "subnt1" {
+resource "aws_subnet" "prisubnt_1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.sudnet_cidr1
+  cidr_block = var.prisudnet_cidr1
 
   tags = {
-    Name = var.subnet_name[0]
+    Name = var.prisubnet_name[0]
   }
 }
 
-resource "aws_subnet" "subnt2" {
+resource "aws_subnet" "prisubnt_2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet_cidr2
+  cidr_block = var.prisudnet_cidr2
 
   tags = {
-    Name = var.subnet_name[1]
+    Name = var.prisubnet_name[1]
   }
 }
 
+resource "aws_subnet" "pubsubnt" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.pubsudnet_cidr1
+ tags = {
+    Name = var.pubsubnet_name[0]
+  }
+}
+
+resource "aws_subnet" "pubsubnt2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.pubsudnet_cidr2
+  tags = {
+    Name = var.pubsubnet_name[1]
+  }
+}
 
